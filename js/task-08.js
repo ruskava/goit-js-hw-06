@@ -2,16 +2,22 @@ const checkForm = document.querySelector(".login-form");
 console.log(checkForm);
 
 checkForm.addEventListener("submit", handleSubmit);
-function handleSubmit(event) {
-  event.preventDefault();
- const {
+function handleSubmit(e) {
+  e.preventDefault();
+  const {
     elements: { email, password }
- } = event.currentTarget;
+  } = e.currentTarget;
   if (email.value === "" || password.value === "") {
-   return alert("All credentials fill you must...");
+    return alert("All credentials fill you must...");
   }
-  console.log(`Email: ${email.value}, Password: ${password.value}`);
-  event.currentTarget.reset();
+  else {
+    const ShowForm = {
+      email: email.value,
+      password: password.value,
+    }
+    console.log(ShowForm);
+    e.currentTarget.reset();
+  }
 }
 
  
